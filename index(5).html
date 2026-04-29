@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Palm Jaggery - Karupatti | 100% Natural</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Tamil', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            color: white;
+            border: 1px solid white;
+            transition: 0.3s;
+        }
+
+        .language-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .language-toggle.active {
+            background: white;
+            color: #8B4513;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d5016 0%, #558b2f 100%);
+            color: white;
+            padding: 6rem 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease;
+        }
+
+        .hero .tamil-text {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: #FF6B35;
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: #FF5722;
+            transform: scale(1.05);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: #2d5016;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Language Hidden */
+        .english {
+            display: block;
+        }
+
+        .tamil {
+            display: none;
+        }
+
+        body.tamil-mode .english {
+            display: none;
+        }
+
+        body.tamil-mode .tamil {
+            display: block;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 20px;
+            background: #f9f9f9;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 4rem 20px;
+            background: white;
+        }
+
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f0f7e0;
+            border-left: 5px solid #558b2f;
+            border-radius: 5px;
+        }
+
+        .benefit-item .checkmark {
+            color: #558b2f;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item h3 {
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 4rem 20px;
+            background: #f9f9f9;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #FF6B35;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 20px;
+            background: linear-gradient(135deg, #2d5016 0%, #558b2f 100%);
+            color: white;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .contact-item .icon {
+            font-size: 2rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 20px;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tamil-text {
+                font-size: 1.5rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lang-badge {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #FF6B35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🌴 Pure Palm Jaggery</div>
+            <ul>
+                <li><a href="#home" class="english">Home</a><a href="#home" class="tamil">முகப்பு</a></li>
+                <li><a href="#benefits" class="english">Benefits</a><a href="#benefits" class="tamil">நன்மைகள்</a></li>
+                <li><a href="#products" class="english">Products</a><a href="#products" class="tamil">பொருட்கள்</a></li>
+                <li><a href="#contact" class="english">Contact</a><a href="#contact" class="tamil">தொடர்பு</a></li>
+                <li>
+                    <button class="language-toggle english" onclick="toggleLanguage()">தமிழ்</button>
+                    <button class="language-toggle tamil active" onclick="toggleLanguage()">English</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1 class="english">🌴 Pure Palm Jaggery (Karupatti)</h1>
+        <h1 class="tamil">🌴 தூய பனை கருப்பட்டி (கருப்பாலை)</h1>
+        
+        <p class="english">Healthy & Natural - Boost Your Immunity the Natural Way!</p>
+        <p class="tamil">ஆரோக்கியமான மற்றும் இயற்கையான - இயற்கையான வழியில் உங்கள் நோய் எதிர்ப்பு சக்தியை அதிகரிக்கவும்!</p>
+        
+        <div class="subtitle english">✅ 100% Natural | ✅ No Chemicals | 💪 Rich in Iron & Minerals</div>
+        <div class="subtitle tamil">✅ 100% இயற்கையான | ✅ இரசायனங்கள் இல்லை | 💪 இரும்பு மற்றும் தாதுக்கள் நிறைந்தது</div>
+        
+        <div>
+            <a href="#contact" class="cta-button english">Order Now</a>
+            <a href="#contact" class="cta-button tamil">இப்போது ஆர்டர் செய்யுங்கள்</a>
+            
+            <a href="#benefits" class="cta-button secondary english">Learn More</a>
+            <a href="#benefits" class="cta-button secondary tamil">மேலும் அறிக</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="english">Why Choose Our Karupatti?</h2>
+            <h2 class="tamil">நமது கருப்பாலையை ஏன் தேர்வு செய்ய வேண்டும்?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">✅</div>
+                    <h3 class="english">100% Natural</h3>
+                    <h3 class="tamil">100% இயற்கையான</h3>
+                    <p class="english">No chemicals, no additives, just pure jaggery from palm trees</p>
+                    <p class="tamil">இரசायனங்கள் இல்லை, சேர்க்கைகள் இல்லை, பனை மரங்களிலிருந்து வெறும் தூய கருப்பட்டி</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💪</div>
+                    <h3 class="english">Rich in Iron & Minerals</h3>
+                    <h3 class="tamil">இரும்பு மற்றும் தாதுக்களால் நிறைந்தது</h3>
+                    <p class="english">Packed with essential nutrients for better health</p>
+                    <p class="tamil">சிறந்த ஆரோக்கியத்திற்கான அத்தியாவசிய ஊட்டச்சத்துக்களால் நிரம்பியுள்ளது</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🏭</div>
+                    <h3 class="english">Traditional Quality</h3>
+                    <h3 class="tamil">பாரம்பரிய தரம்</h3>
+                    <p class="english">Made using traditional methods for authentic taste</p>
+                    <p class="tamil">உண்மையான சுவைக்கான பாரம்பரிய முறைகளைப் பயன்படுத்தி தயாரிக்கப்பட்டது</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🍵</div>
+                    <h3 class="english">Versatile Use</h3>
+                    <h3 class="tamil">பல்முகமான பயன்பாடு</h3>
+                    <p class="english">Perfect for coffee, tea, sweets, and more</p>
+                    <p class="tamil">காபி, தேநீர், இனிப்புகள் மற்றும் பலவற்றிற்கு ஏற்றது</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🚚</div>
+                    <h3 class="english">Fast Delivery</h3>
+                    <h3 class="tamil">விரைவான டெலிவரி</h3>
+                    <p class="english">Quick shipping available across the region</p>
+                    <p class="tamil">பகுதி முழுவதும் விரைவான ஷிப்பிং கிடைக்கும்</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📦</div>
+                    <h3 class="english">All Quantities</h3>
+                    <h3 class="tamil">எல்லா அளவுகளும்</h3>
+                    <p class="english">Available in bulk & retail packages</p>
+                    <p class="tamil">மொத்த மற்றும் சில்ப பொதிகளில் கிடைக்கும்</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="english">Health Benefits of Pure Palm Jaggery</h2>
+            <h2 class="tamil">தூய பனை கருப்பட்டির ஆரோக்கிய நன்மைகள்</h2>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="checkmark">✓</div>
+                    <div>
+                        <h3 class="english">Boosts Immunity</h3>
+                        <h3 class="tamil">நோய் எதிர்ப்பு சக்தியை அதிகரிக்கிறது</h3>
+                        <p class="english">Rich in antioxidants that strengthen your immune system naturally</p>
+                        <p class="tamil">உங்கள் நோய் எதிர்ப்பு மண்டலத்தை இயற்கையாக வலிமையாக்கும் ஆக்சிஜனேற்ற சக்தியால் நிறைந்தது</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="checkmark">✓</div>
+                    <div>
+                        <h3 class="english">Aids Digestion</h3>
+                        <h3 class="tamil">செரிமானத்திற்கு உதவுகிறது</h3>
+                        <p class="english">Promotes healthy digestive enzymes and improves metabolism</p>
+                        <p class="tamil">ஆரோக்கியமான செரிமான நொதிகளை ஊக்குவிக்கிறது மற்றும் வளர்சிதை மாற்றத்தை மேம்படுத்துகிறது</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="checkmark">✓</div>
+                    <div>
+                        <h3 class="english">Improves Blood Quality</h3>
+                        <h3 class="tamil">இரத்த தரத்தை மேம்படுத்துகிறது</h3>
+                        <p class="english">High iron content helps prevent anemia and improves hemoglobin</p>
+                        <p class="tamil">அதிக இரும்பு உள்ளடக்கம் ரத்தசோகையைத் தடுக்க உதவுகிறது மற்றும் ஹீமோகுளோபின் அளவை மேம்படுத்துகிறது</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="checkmark">✓</div>
+                    <div>
+                        <h3 class="english">Joint & Bone Health</h3>
+                        <h3 class="tamil">கீல் மற்றும் எலும்பு ஆரோக்கியம்</h3>
+                        <p class="english">Contains minerals essential for strong bones and joints</p>
+                        <p class="tamil">வலுவான எலும்புகள் மற்றும் கீல்களுக்கு அত்যাவசிய தாதுக்கள் உள்ளடக்கம்</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="checkmark">✓</div>
+                    <div>
+                        <h3 class="english">Natural Energy</h3>
+                        <h3 class="tamil">இயற்கையான ஆற்றல்</h3>
+                        <p class="english">Provides instant energy without refined sugar crash</p>
+                        <p class="tamil">சுத்திகரிக்கப்பட்ட சர்க்கரை விழ இல்லாமல் তাৎক்ষণிক ஆற்றல் வழங்குகிறது</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="checkmark">✓</div>
+                    <div>
+                        <h3 class="english">Cleanses Body</h3>
+                        <h3 class="tamil">உடலைத் தூய்மைப்படுத்துகிறது</h3>
+                        <p class="english">Acts as a natural detoxifier for the entire system</p>
+                        <p class="tamil">முழு நிலையத்திற்கும் ஒரு இயற்கையான বিষ நீக்கியாக செயல்படுகிறது</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="english">Our Products</h2>
+            <h2 class="tamil">எங்கள் பொருட்கள்</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🌴</div>
+                    <div class="product-info">
+                        <h3 class="english">Retail Pack</h3>
+                        <h3 class="tamil">சில்ப பொதி</h3>
+                        <p class="english">Perfect for home use and trying our product</p>
+                        <p class="tamil">வீட்டு பயன்பாட்டிற்கும் எங்கள் பொருளை முயற்சி செய்ய சிறந்தது</p>
+                        <div class="price">₹250/500g</div>
+                        <a href="#contact" class="cta-button english">Order Now</a>
+                        <a href="#contact" class="cta-button tamil" style="display:none;">இப்போது ஆர்டர் செய்யுங்கள்</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">📦</div>
+                    <div class="product-info">
+                        <h3 class="english">Family Pack</h3>
+                        <h3 class="tamil">குடும்ப பொதி</h3>
+                        <p class="english">Great for regular consumption and sharing</p>
+                        <p class="tamil">வழக்கமான நுகர்வு மற்றும் பகிர்வதற்கு சிறந்தது</p>
+                        <div class="price">₹600/1.5kg</div>
+                        <a href="#contact" class="cta-button english">Order Now</a>
+                        <a href="#contact" class="cta-button tamil" style="display:none;">இப்போது ஆர்டர் செய்யுங்கள்</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🏭</div>
+                    <div class="product-info">
+                        <h3 class="english">Bulk Order</h3>
+                        <h3 class="tamil">மொத்த ஆர்டர்</h3>
+                        <p class="english">Wholesale rates for businesses and resellers</p>
+                        <p class="tamil">வியாபாரங்கள் மற்றும் மறுவிற்பனையாளர்களுக்கான மொத்த விலைகள்</p>
+                        <div class="price english">Custom Pricing</div>
+                        <div class="price tamil">தனிப்பு விலை</div>
+                        <a href="#contact" class="cta-button english">Contact Now</a>
+                        <a href="#contact" class="cta-button tamil" style="display:none;">இப்போது தொடர்பு கொள்ளுங்கள்</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="english">Get Your Pure Palm Jaggery Today!</h2>
+            <h2 class="tamil">இன்று உங்கள் தூய பனை கருப்பட்டியைப் பান!</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">📱</div>
+                        <div>
+                            <h3 class="english">Call Us</h3>
+                            <h3 class="tamil">எங்களை அழையுங்கள்</h3>
+                            <p><a href="tel:+916382033140" style="color:white; text-decoration:none;">+91 63820 33140</a></p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Paul Raj - Owner</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">🚚</div>
+                        <div>
+                            <h3 class="english">Fast Delivery</h3>
+                            <h3 class="tamil">விரைவான டெலிவரி</h3>
+                            <p class="english">Quick shipping available</p>
+                            <p class="tamil">விரைவான ஷிப்பிங் கிடைக்கும்</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">✅</div>
+                        <div>
+                            <h3 class="english">Quality Assured</h3>
+                            <h3 class="tamil">தரம் உறுதி</h3>
+                            <p class="english">100% Natural & No Chemicals</p>
+                            <p class="tamil">100% இயற்கையான மற்றும் இரசायனங்கள் இல்லை</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name" class="english">Your Name</label>
+                        <label for="name" class="tamil">உங்கள் பெயர்</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="english">Phone Number</label>
+                        <label for="phone" class="tamil">தொலைபேசி எண்</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity" class="english">Quantity Required</label>
+                        <label for="quantity" class="tamil">தேவையான அளவு</label>
+                        <input type="text" id="quantity" name="quantity" placeholder="e.g., 500g, 1kg, or bulk" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="english">Message</label>
+                        <label for="message" class="tamil">செய்தி</label>
+                        <textarea id="message" name="message" class="english" placeholder="Tell us about your requirements..."></textarea>
+                        <textarea id="message" name="message" class="tamil" placeholder="உங்கள் தேவைகள் பற்றி எங்களுக்கு சொல்லுங்கள்..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button english" style="width: 100%; cursor: pointer;">Send Inquiry</button>
+                    <button type="submit" class="cta-button tamil" style="width: 100%; cursor: pointer; display:none;">விசாரணை அனுப்பவும்</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="english">&copy; 2024 Pure Palm Jaggery (Karupatti) - All Rights Reserved</p>
+        <p class="tamil">&copy; 2024 தூய பனை கருப்பட்டி (கருப்பாலை) - அனைத்து உரிமைகளும் সংরक்ষிக்கப்பட்டுள்ளன</p>
+        
+        <p class="english">🌿 Eat Healthy, Live Strong!</p>
+        <p class="tamil">🌿 ஆரோக்கியமாக சாப்பிடுங்கள், வலிமையாக வாழுங்கள்!</p>
+        
+        <div class="social-links">
+            <a href="#" title="Facebook">f</a>
+            <a href="#" title="WhatsApp">💬</a>
+            <a href="#" title="Instagram">📷</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('tamil-mode');
+            
+            // Update button states
+            const englishBtn = document.querySelector('.language-toggle.english');
+            const tamilBtn = document.querySelector('.language-toggle.tamil');
+            
+            englishBtn.classList.toggle('active');
+            tamilBtn.classList.toggle('active');
+            
+            // Save preference
+            localStorage.setItem('language', document.body.classList.contains('tamil-mode') ? 'tamil' : 'english');
+        }
+
+        // Load saved language preference
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage === 'tamil') {
+                document.body.classList.add('tamil-mode');
+                document.querySelector('.language-toggle.english').classList.remove('active');
+                document.querySelector('.language-toggle.tamil').classList.add('active');
+            }
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const quantity = document.getElementById('quantity').value;
+            const message = document.getElementById('message').value;
+            
+            // Check if Tamil mode is active
+            const isTamil = document.body.classList.contains('tamil-mode');
+            
+            // WhatsApp message
+            let whatsappMessage;
+            if (isTamil) {
+                whatsappMessage = `நமஸ்கார் பால் ராஜ்! நான் தூய பனை கருப்பட்டিতে ஆர்வம் கொண்டுள்ளேன்.\n\nபெயர்: ${name}\nதொலைபேசி: ${phone}\nஅளவு: ${quantity}\nசெய்தி: ${message}`;
+            } else {
+                whatsappMessage = `Hello Paul Raj! I'm interested in Pure Palm Jaggery.\n\nName: ${name}\nPhone: ${phone}\nQuantity: ${quantity}\nMessage: ${message}`;
+            }
+            
+            const whatsappLink = `https://wa.me/916382033140?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</body>
+</html>
